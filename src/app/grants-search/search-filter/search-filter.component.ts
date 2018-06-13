@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { GrantsSearchService } from '../grants-search.service';
 
 @Component({
   selector: 'app-search-filter',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchFilterComponent implements OnInit {
 
-  constructor() { }
+  searchFilterForm: FormGroup;
 
-  ngOnInit() {
-  }
+    constructor(private grantsSearch: GrantsSearchService) { }
+
+    onSearch() {
+        const filters = {
+            geoScale: this.searchFilterForm.value.geoScale
+        };
+        this.grantsSearch.getGrant(filters).subscribe(
+            data => console.log(data),
+            error => console.error(error)
+        );
+    }
+
+    ngOnInit() {
+        this.searchFilterForm = new FormGroup({
+            geoScale: new FormControl(null),
+        });
+    }
 
 }

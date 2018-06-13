@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManualyAddService } from '../manualy-add.service';
 
 @Component({
   selector: 'app-modal',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  isShow: boolean;
+
+  constructor(private manualyAddService: ManualyAddService) { }
 
   ngOnInit() {
   }

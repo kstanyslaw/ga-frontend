@@ -1,0 +1,18 @@
+tbody tr {
+    cursor: pointer;
+  }
+  
+  tbody :hover {
+    background-color: lightgray;
+  }
+  
+  button.remove-grant {
+    width: 2em;
+    height: 2em;
+    background-color: transparent;
+    border: none;
+    background-image: url(https://cdn2.iconfinder.com/data/icons/cleaning-19/30/30x30-10-512.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.5em;
+  }

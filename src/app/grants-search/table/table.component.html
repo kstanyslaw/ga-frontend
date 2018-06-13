@@ -1,3 +1,22 @@
-<p>
-  table works!
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-md-12">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th scope="col">Название</th>
+                      <th scope="col">Размер</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let grant of grants">
+                      <td [routerLink]="['/grant/' + grant._id]">{{ grant.name }}</td>
+                      <td [routerLink]="['/grant/' + grant._id]">{{ grant.price }}</td>
+                      <!-- <td class="remove-grant" *ngIf="checkRole()"></td> -->
+                      <button class="remove-grant" *ngIf="checkRole()" (click)="deleteGrant(grant._id)"></button>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+form {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ced4da;
+    border-radius: .25rem;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+div.collapse {
+    padding-top: 1.3em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.btn.search {
+    width: 2.5em;
+    background-image: url(http://www.terranus.de/wp-content/themes/terranus/images/search-icon.png);
+    background-repeat: no-repeat;
+    background-size: 1.4em;
+    background-position: center;
+    border-color: #ced4da;
+}

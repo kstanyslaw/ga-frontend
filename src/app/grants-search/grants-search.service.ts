@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import {Observable} from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Grant } from '../grant.model';
 import { VARIABLES } from '../../../var';
@@ -17,22 +18,26 @@ export class GrantsSearchService {
   addGrant(grant: Grant) {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    }
+    };
     return this.httpClient.post<Grant>((this.variables.api + 'grant'), grant, httpOptions)
-      .map((response) => {
-        this.grants.push(response);
-      })
-      .catch((error) => Observable.throw(error.json()));
+      .pipe(
+        map((response) => {
+          this.grants.push(response);
+        })
+      );
+      // .catch((error) => Observable.throw(error.json()));
   }
 
   getGrant(filters?) {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       params: new HttpParams({fromObject: filters})
-    }
+    };
     return this.httpClient.get<Grant[]>((this.variables.api + 'grant'), httpOptions)
-      .map((grants) => this.grants = grants)
-      .catch((error) => Observable.throw(error.json()));
+      .pipe(
+        map((grants) => this.grants = grants)
+      );
+      // .catch((error) => Observable.throw(error.json()));
   }
 
   deleteGrant(grantId: string) {
@@ -46,8 +51,8 @@ export class GrantsSearchService {
         // grantId: grantId,
         token: token
       }})
-    }
-    return this.httpClient.delete((this.variables.api + 'grant/' + grantId), httpOptions)
-      .catch((error) => Observable.throw(error.json()));
+    };
+    return this.httpClient.delete((this.variables.api + 'grant/' + grantId), httpOptions);
+      // .catch((error) => Observable.throw(error.json()));
   }
 }
