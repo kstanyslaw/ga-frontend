@@ -1,0 +1,17 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" [ngClass]="{'show': this.manualyAddService.modalIsShow}">
+  <div class="modal-dialog  modal-lg">
+      <!-- modal-dialog-centered -->
+      <div class="modal-content">
+
+          <div class="modal-header">
+              <h4 class="modal-title">Добавить грант</h4>
+              <button type="button" class="close" aria-label="Close" (click)="isShow = this.manualyAddService.changeModalIsShow(false)">
+        <span aria-hidden="true">×</span>
+      </button>
+          </div>
+          <div class="modal-body">
+              <app-modal-form></app-modal-form>
+          </div>
+      </div>
+  </div>
+</div>

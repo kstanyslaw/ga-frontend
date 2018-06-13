@@ -1,0 +1,99 @@
+<div class="container">
+  <form [formGroup]="grantForm" (ngSubmit)="onSubmit()">
+      
+      <label class="header" for="name">Название грантовой программы</label>
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Название гранта" formControlName="name">
+      </div>
+      
+      <label class="header" for="grantor">Полное наименование оператора гранта/грантодателя</label>
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Название гранта" formControlName="grantor">
+      </div>
+      
+      <label class="header" for="url">Ссылка на сайт гранта</label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">url:</span>
+          </div>
+          <input type="text" class="form-control" formControlName="url" placeholder="http://">
+          <small class="form-text text-muted">
+              Укажите ссылку именно на сайт, который является официальным. Указание на косвенный источник информации не подходит.
+          </small>
+      </div>
+
+      <label class="header" for="description">Описание гранта</label>
+      <div class="input-group mb-3">
+          <textarea class="form-control" formControlName="description"></textarea>
+      </div>
+
+      <label class="header" for="name">Дата объявления конкурса</label>
+      <div class="input-group mb-3">
+          <input type="date" class="form-control" placeholder="Название гранта" formControlName="dateStart">
+      </div>
+
+      <label class="header" for="name">Дата окончания подачи заявки на конкурс (дедлайн)</label>
+      <div class="input-group mb-3">
+          <input type="date" class="form-control" placeholder="Название гранта" formControlName="deadline">
+      </div>
+
+      <label class="header" for="price">Размер гранта</label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">₽</span>
+          </div>
+          <input type="text" class="form-control" formControlName="price">
+          <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+          </div>
+      </div>
+      
+      <label class="header" for="geographic-scale">Географический охват гранта</label>
+      <div class="input-group mb-3">
+          <div class="form-check col-sm-12">
+              <input class="form-check-input" type="radio" value="local" formControlName="geoScale"> Локальный (городской, муниципальный)
+          </div>
+          <div class="form-check col-sm-12">
+              <input class="form-check-input" type="radio" value="region" formControlName="geoScale"> Региональный (областной, краевой)
+          </div>
+          <div class="form-check col-sm-12">
+              <input class="form-check-input" type="radio" value="interregional" formControlName="geoScale"> Межрегиональный (охват 2-х и более регионов)
+          </div>
+          <div class="form-check col-sm-12">
+              <input class="form-check-input" type="radio" value="federal" formControlName="geoScale"> Федеральный
+          </div>
+          <div class="form-check col-sm-12">
+              <input class="form-check-input" type="radio" value="international" formControlName="geoScale"> Международный
+          </div>
+      </div>
+      
+      <label class="header" for="location">Локация</label>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="region">Регион</label>
+            <select class="form-control" formControlName="region" (change)="setRegion()">
+                  <option value="" disabled selected style='display:none;'>Выберите регион</option>
+                  <option *ngFor="let city of cities; let i = index" [value]="i">{{ city.region }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+              <label for="city">Город</label>
+              <select class="form-control" formControlName="city">
+                  <option value="" disabled selected style='display:none;'>Выберите город</option>
+                  <option *ngFor="let city of regionCities" [value]="city">{{ city }}</option>
+              </select>
+          </div>
+      </div>
+
+      <label class="header" for="grantee">Грантополучатель</label>
+      <div class="input-group mb-3">
+          <div class="form-check col-sm-12" *ngFor="let grantee of grantees; let i=index">
+              <input class="form-check-input" type="checkbox" [checked]="grantee.checked" (change)="setGrantee(i)"> {{ grantee.name }} </div>
+      </div>
+
+
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Нажмите, чтобы добавить</button>
+
+  </form>
+</div>
