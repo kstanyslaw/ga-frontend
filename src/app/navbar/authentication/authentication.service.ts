@@ -27,7 +27,7 @@ export class AuthenticationService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    return this.httpClient.post((this.variables.api + 'user/confirm-email'), body, httpOptions);
+    return this.httpClient.patch((this.variables.api + 'user/confirm-email'), body, httpOptions);
   }
 
   checkEmailFree(email: String) {

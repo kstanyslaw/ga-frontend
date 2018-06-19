@@ -14,11 +14,11 @@ export class ConfirmComponent implements OnInit {
 
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('id');
-        this.authenticationService.confirmEmail(userId)
-            .subscribe(
-                data => console.log(data),
-                error => console.error(error)
-            );
+    this.authenticationService.confirmEmail(userId)
+      .subscribe(
+        data => console.log(data),
+        error => console.error(error)
+      );
   }
 
 }

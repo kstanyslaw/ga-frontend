@@ -51,7 +51,7 @@ export class SingupComponent implements OnInit {
                         this.emailCheck = this.messages.invalidEmail;
                         break;
                     // case data.result:
-                    case !data['result']:
+                    case data['result']:
                         this.emailCheck = this.messages.emailIsTaken;
                         break;
                     default:
