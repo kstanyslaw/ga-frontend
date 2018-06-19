@@ -1,3 +1,30 @@
-<p>
-  singup works!
-</p>
+<div class="content">
+  <form [formGroup]="singupForm" (ngSubmit)="onSubmit()">
+      <!-- Email -->
+      <label for="email">Электронная почта:</label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">✉️</span>
+          </div>
+          <input type="email" class="form-control" [ngClass]="emailCheck.formClass" placeholder="youremail@email.com" formControlName="email" (keyup)="onCheckEmail()">
+          <small class="form-text col-12" [ngClass]="emailCheck.alertClass">
+              {{ emailCheck.message }}
+          </small>
+      </div>
+  
+      <!-- Password -->
+      <label for="password">Пароль:</label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">✉️</span>
+          </div>
+          <input [type]="passwordVisible? 'password' : 'text'" class="form-control" placeholder="password" formControlName="password">
+          <div class="input-group-append">
+              <button class="btn btn-outline-secondary password-show" [ngClass]="passwordVisible? 'passwd-hidden' : 'passwd-visible'" type="button" (click)="passwordVisible = !passwordVisible"></button>
+          </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="(!singupForm.valid || !emailCheck.valid)">Зарегистрироваться</button>
+  
+  </form>
+</div>

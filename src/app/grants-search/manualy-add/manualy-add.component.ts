@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManualyAddService } from './manualy-add.service';
 
 @Component({
   selector: 'app-manualy-add',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManualyAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private manualyAddService: ManualyAddService) { }
 
   ngOnInit() {
   }
@@ -18,5 +19,9 @@ export class ManualyAddComponent implements OnInit {
     } else {
         return true;
     }
+  }
+
+  changeModalIsShow(flag: boolean) {
+    this.manualyAddService.changeModalIsShow(flag);
   }
 }

@@ -8,11 +8,13 @@ import { ManualyAddService } from '../manualy-add.service';
 })
 export class ModalComponent implements OnInit {
 
-  isShow: boolean;
-
   constructor(private manualyAddService: ManualyAddService) { }
 
   ngOnInit() {
+  }
+
+  changeModalIsShow(isShow: boolean) {
+    this.manualyAddService.changeModalIsShow(isShow);
   }
 
 }

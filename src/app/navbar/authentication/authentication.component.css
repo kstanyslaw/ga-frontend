@@ -1,0 +1,39 @@
+button {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+button.btn.btn-outline-light.logout {
+    background-image: url(https://www.shareicon.net/data/256x256/2015/10/04/111640_personal_512x512.png);
+    width: 4em;
+    height: 2.5em;
+    border-radius: 0.23em;
+    background-size: 1.8em;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 0.2em;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow-y:scroll;
+}
+
+.show {
+    display: block;
+}
+
+.dropdown-item.disabled {
+    color: grey;
+}
+
+.dropdown-menu.dropdown-menu-right{
+    right: 0;
+    left: auto;
+}
+
+.dropdown-toggle::after {
+    left: 0;
+    right: auto;
+}
+

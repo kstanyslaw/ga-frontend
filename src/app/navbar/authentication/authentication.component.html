@@ -1,3 +1,36 @@
-<p>
-  authentication works!
-</p>
+<button type="button" class="btn btn-outline-light login" (click)="isShow = true" *ngIf="!isLoggedIn()">Войти</button>
+
+<div class="btn-group" [ngClass]="{'show': dropdownShow}" *ngIf="isLoggedIn()">
+    <button class="btn btn-outline-light logout" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" (click)="dropdownShow = !dropdownShow">
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': dropdownShow}" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" [routerLink]="['/dashboard']" (click)="dropdownShow = !dropdownShow">Администрирование</a>
+        <a class="dropdown-item" [routerLink]="[ '/profile']" (click)="dropdownShow = !dropdownShow">Профиль</a>
+        <a class="dropdown-item" (click)="logout()">Выход</a>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': isShow}">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link" [ngClass]="{'active': activeTab == 'login'}" (click)="activeTab = 'login'">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" [ngClass]="{'active': activeTab == 'singup'}" (click)="activeTab = 'singup'">Зарегистрироваться</a>
+                    </li>
+                  </ul>
+                <button type="button" class="close" aria-label="Close" (click)="isShow = false">
+            <span aria-hidden="true">×</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <app-singup *ngIf="activeTab == 'singup'"></app-singup>
+                <app-login *ngIf="activeTab == 'login'"></app-login>
+            </div>
+        </div>
+    </div>
+</div>
