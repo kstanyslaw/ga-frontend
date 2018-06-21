@@ -11,6 +11,7 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
 
   passwordVisible = true;
@@ -64,6 +65,11 @@ export class LoginComponent implements OnInit {
           },
           error => console.error(error)
       );
+  }
+
+  onResetPasswd() {
+      this.authenticationService.resetPasswd()
+        .subscribe();
   }
 
   ngOnInit() {

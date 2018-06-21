@@ -7,6 +7,7 @@ import { ConfirmComponent } from './navbar/authentication/confirm/confirm.compon
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/grants-search' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 

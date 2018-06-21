@@ -4,9 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { VARIABLES } from 'var';
 import { User } from '../../user.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationService {
 
   private variables: any = VARIABLES;
@@ -58,6 +56,16 @@ export class AuthenticationService {
 
   IsLoggedIn() {
     return localStorage.getItem('token') !== null;
+  }
+
+  resetPasswd() {
+    const body = {
+      email: 'k.stanyslaw@yopmail.com'
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.httpClient.post((this.variables.api + 'user/reset-password'), body, httpOptions);
   }
 
 }

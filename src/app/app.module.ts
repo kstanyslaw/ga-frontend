@@ -10,10 +10,11 @@ import { ProfileModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 
 import { AppRoutingModule } from './app.routing';
+import { ResetPasswordModule } from './reset-password/reset-password.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,8 @@ import { AppRoutingModule } from './app.routing';
     GrantsSearchModule,
     NavbarModule,
     PricingModule,
-    ProfileModule
+    ProfileModule,
+    ResetPasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]
