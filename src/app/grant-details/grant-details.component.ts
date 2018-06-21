@@ -14,7 +14,7 @@ export class GrantDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private grantDetailsService: GrantDetailsService) { }
 
-  private grant: Grant;
+  grant: Grant;
 
   ngOnInit() {
     this.getGrantDetails();

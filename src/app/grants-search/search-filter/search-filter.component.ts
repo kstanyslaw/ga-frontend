@@ -9,7 +9,9 @@ import { GrantsSearchService } from '../grants-search.service';
 })
 export class SearchFilterComponent implements OnInit {
 
-  searchFilterForm: FormGroup;
+    isShow = false;
+
+    searchFilterForm: FormGroup;
 
     constructor(private grantsSearch: GrantsSearchService) { }
 

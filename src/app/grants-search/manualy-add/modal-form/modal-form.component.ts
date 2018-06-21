@@ -13,15 +13,15 @@ import { CITIES } from './cities';
 })
 export class ModalFormComponent implements OnInit {
 
-  private cities = CITIES;
+  cities = CITIES;
 
   grantForm: FormGroup;
 
-  private regionCities = [''];
+  regionCities = [''];
 
   private cityPickEnable = false;
 
-  private grantees = [
+  grantees = [
     { name: 'НКО', checked: false },
     { name: 'Физическое лицо', checked: false },
     { name: 'Юридическое лицо', checked: false },

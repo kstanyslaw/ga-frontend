@@ -8,7 +8,7 @@ import { ManualyAddService } from '../manualy-add.service';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private manualyAddService: ManualyAddService) { }
+  constructor(public manualyAddService: ManualyAddService) { }
 
   ngOnInit() {
   }
