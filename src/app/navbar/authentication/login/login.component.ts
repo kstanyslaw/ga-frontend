@@ -30,16 +30,16 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
       const user = new User(
-          this.loginForm.value.email,
-          this.loginForm.value.password
+        this.loginForm.value.email,
+        this.loginForm.value.password
       );
       this.authenticationService.login(user)
           .subscribe(
               data => {
-                  localStorage.setItem('token', data.token);
-                  localStorage.setItem('userId', data.userId);
-                  localStorage.setItem('userRole', data.userRole);
-                  console.log(data);
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('userId', data.userId);
+                localStorage.setItem('userRole', data.userRole);
+                this.authenticationService.isShow = false;
               },
               error => console.error(error)
           );

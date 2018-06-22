@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-outline-light login" (click)="isShow = true" *ngIf="!isLoggedIn()">Войти</button>
+<button type="button" class="btn btn-outline-light login" (click)="this.authenticationService.isShow = true" *ngIf="!isLoggedIn()">Войти</button>
 
 <div class="btn-group" [ngClass]="{'show': dropdownShow}" *ngIf="isLoggedIn()">
     <button class="btn btn-outline-light logout" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" (click)="dropdownShow = !dropdownShow">
@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': isShow}">
+<div class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': this.authenticationService.isShow}">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -23,7 +23,7 @@
                       <a class="nav-link" [ngClass]="{'active': activeTab == 'singup'}" (click)="activeTab = 'singup'">Зарегистрироваться</a>
                     </li>
                   </ul>
-                <button type="button" class="close" aria-label="Close" (click)="isShow = false">
+                <button type="button" class="close" aria-label="Close" (click)="this.authenticationService.isShow = false">
             <span aria-hidden="true">×</span>
             </button>
             </div>
