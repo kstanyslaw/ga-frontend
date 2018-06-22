@@ -7,6 +7,8 @@ import { User } from '../../user.model';
 @Injectable()
 export class AuthenticationService {
 
+  isShow = false;
+
   private variables: any = VARIABLES;
 
   constructor( private httpClient: HttpClient) { }

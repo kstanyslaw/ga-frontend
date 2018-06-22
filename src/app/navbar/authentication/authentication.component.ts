@@ -10,13 +10,11 @@ export class AuthenticationComponent implements OnInit {
 
   public elementRef;
 
-    isShow = false;
-
     dropdownShow = false;
 
     activeTab = 'login';
 
-    constructor(private authenticationService: AuthenticationService, private eRef: ElementRef) {}
+    constructor(public authenticationService: AuthenticationService, private eRef: ElementRef) {}
 
     isLoggedIn() {
         return this.authenticationService.IsLoggedIn();
