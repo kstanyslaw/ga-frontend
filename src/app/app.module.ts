@@ -11,10 +11,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 import { AppRoutingModule } from './app.routing';
 import { ResetPasswordModule } from './reset-password/reset-password.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

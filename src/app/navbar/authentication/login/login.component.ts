@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
                   case !this.authenticationService.checkEmailValid(this.loginForm.value.email):
                       this.emailCheck = this.messages.invalidEmail;
                       break;
-                // case !data.result:
                 case !data['result']:
                       this.emailCheck = this.messages.emailIsTaken;
                       break;
