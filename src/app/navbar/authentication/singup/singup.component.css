@@ -37,3 +37,19 @@ button.passwd-hidden {
 .warning {
     border-color: #ffeaab;
 }
+
+span {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 2.8em;
+}
+
+span.email {
+    background-image: url('https://www.freeiconspng.com/uploads/envelope-icon-5.png');
+    background-size: 1em;
+}
+
+span.password {
+    background-image: url('https://totalpatientservice.com/wp-content/uploads/2014/10/Key-Icon.png');
+    background-size: 1em;
+}

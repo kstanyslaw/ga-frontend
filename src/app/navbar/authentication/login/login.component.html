@@ -5,7 +5,7 @@
           <label for="email">Электронная почта:</label>
           <div class="input-group mb-3">
               <div class="input-group-prepend">
-                  <span class="input-group-text">✉️</span>
+                  <span class="input-group-text email"></span>
               </div>
               <input type="email" class="form-control" [ngClass]="emailCheck.formClass" placeholder="youremail@email.com" formControlName="email" (keyup)="onCheckEmail()">
               <small class="form-text col-12" [ngClass]="emailCheck.alertClass">
@@ -17,7 +17,7 @@
       <label for="password">Пароль:</label>
       <div class="input-group mb-3">
           <div class="input-group-prepend">
-              <span class="input-group-text">✉️</span>
+              <span class="input-group-text password"></span>
           </div>
           <input [type]="passwordVisible? 'password' : 'text'" class="form-control" placeholder="password" formControlName="password">
           <div class="input-group-append">
