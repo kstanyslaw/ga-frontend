@@ -19,6 +19,8 @@ export class ModalFormComponent implements OnInit {
 
   regionCities = [''];
 
+  fileName = 'Нажмите, чтобы выбрать файл';
+
   private cityPickEnable = false;
 
   grantees = [
@@ -71,6 +73,13 @@ export class ModalFormComponent implements OnInit {
       }
     });
     return result;
+  }
+
+  onDocumentPicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.fileName = file.name;
+    console.log(file.type);
+    const reader = new FileReader();
   }
 
   ngOnInit() {
