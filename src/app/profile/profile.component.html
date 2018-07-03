@@ -1,1 +1,5 @@
-<button class="btn btn-primary">change password</button>
+<button class="btn btn-primary" type="button" (click)="filePicker.click()"> Choose file to upload </button>
+<input type="file" #filePicker (change)="onFilePicked($event)" >
+<div class="image-preview" *ngIf="imagePreview !== '' && imagePreview">
+    <img [src]="imagePreview" [alt]="">
+</div>
