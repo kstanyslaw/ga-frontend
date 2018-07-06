@@ -9,7 +9,7 @@ import { VARIABLES } from '../../../var';
 @Injectable()
 export class GrantsSearchService {
 
-  private grants: Grant[] = [];
+  grants: Grant[] = [];
 
   private variables: any = VARIABLES;
 

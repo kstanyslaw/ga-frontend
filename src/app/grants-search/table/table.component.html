@@ -9,7 +9,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let grant of grants">
+                  <tr *ngFor="let grant of this.grantsSearchService.grants">
                       <td [routerLink]="['/grant/' + grant._id]">{{ grant.name }}</td>
                       <td [routerLink]="['/grant/' + grant._id]">{{ grant.price }}</td>
                       <!-- <td class="remove-grant" *ngIf="checkRole()"></td> -->
