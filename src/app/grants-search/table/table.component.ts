@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Grant } from '../../grant.model';
 import { GrantsSearchService } from '../grants-search.service';
+import { UserRoles } from '../../user-roles.enum';
 
 @Component({
   selector: 'app-table',
@@ -9,6 +10,8 @@ import { GrantsSearchService } from '../grants-search.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+
+  roles = UserRoles;
 
   grants: Grant[] = [];
 
@@ -25,11 +28,8 @@ export class TableComponent implements OnInit {
   }
 
   checkRole() {
-      if (localStorage.getItem('userRole') !== 'administrator') {
-        return false;
-    } else {
-        return true;
-    }
+    const userRole = localStorage.getItem('userRole');
+    return (this.roles[userRole] >= this.roles.moderator);
   }
 
   deleteGrant(id: string) {

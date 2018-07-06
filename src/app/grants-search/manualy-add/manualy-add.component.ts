@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManualyAddService } from './manualy-add.service';
+import { UserRoles } from '../../user-roles.enum';
 
 @Component({
   selector: 'app-manualy-add',
@@ -8,17 +9,16 @@ import { ManualyAddService } from './manualy-add.service';
 })
 export class ManualyAddComponent implements OnInit {
 
+  roles = UserRoles;
+
   constructor(private manualyAddService: ManualyAddService) { }
 
   ngOnInit() {
   }
 
   checkRole() {
-    if (localStorage.getItem('userRole') !== 'administrator') {
-        return false;
-    } else {
-        return true;
-    }
+    const userRole = localStorage.getItem('userRole');
+    return (this.roles[userRole] >= this.roles.moderator);
   }
 
   changeModalIsShow(flag: boolean) {
