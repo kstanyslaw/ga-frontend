@@ -9,7 +9,15 @@ import { GrantsSearchService } from '../grants-search.service';
 })
 export class SearchFilterComponent implements OnInit {
 
-    isShow = false;
+    // isShow = false;
+    isShow = true;
+
+    grantees = [
+        { name: 'НКО', checked: false },
+        { name: 'Физическое лицо', checked: false },
+        { name: 'Юридическое лицо', checked: false },
+        { name: 'Государственная организация', checked: false }
+    ];
 
     searchFilterForm: FormGroup;
 
@@ -17,12 +25,28 @@ export class SearchFilterComponent implements OnInit {
 
     onSearch() {
         const filters = {
-            geoScale: this.searchFilterForm.value.geoScale
+            geoScale: this.searchFilterForm.value.geoScale,
+            grantees: this.getGrantees()
         };
+        console.log(filters);
         this.grantsSearch.getGrant(filters).subscribe(
             data => console.log(data),
             error => console.error(error)
         );
+    }
+
+    setGrantee(i) {
+        this.grantees[i].checked = !this.grantees[i].checked;
+    }
+
+    getGrantees() {
+        const result: Array<string> = [];
+        this.grantees.forEach(grantee => {
+          if (grantee.checked) {
+            result.push(grantee.name);
+          }
+        });
+        return result;
     }
 
     ngOnInit() {
