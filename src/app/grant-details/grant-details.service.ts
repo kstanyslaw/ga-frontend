@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { VARIABLES } from 'var';
 import { map } from 'rxjs/operators';
 
@@ -13,9 +13,16 @@ export class GrantDetailsService {
   constructor(private httpClient: HttpClient) { }
 
   getGrantDetails(id: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+    const token = localStorage.getItem('token')
+      ? localStorage.getItem('token')
+      : '';
+      const httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        params: new HttpParams({ fromObject: {
+          token: token
+        }})
+      };
+
     return this.httpClient.get((this.variables.api + 'grant/details/' + id), httpOptions)
     .pipe(
       map((response) => {

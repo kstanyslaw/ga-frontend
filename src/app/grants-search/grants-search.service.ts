@@ -46,7 +46,7 @@ export class GrantsSearchService {
       ? localStorage.getItem('token')
       : '';
     const httpOptions = {
-      headers: new HttpHeaders({ 'content-Type': 'application/json' }),
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       params: new HttpParams({ fromObject: {
         // grantId: grantId,
         token: token
