@@ -13,6 +13,8 @@ import { CITIES } from './cities';
 })
 export class ModalFormComponent implements OnInit {
 
+  documents: Array<File>;
+
   cities = CITIES;
 
   grantForm: FormGroup;
@@ -78,7 +80,7 @@ export class ModalFormComponent implements OnInit {
   onDocumentPicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.fileName = file.name;
-    console.log(file.type);
+    console.log(file);
     const reader = new FileReader();
   }
 
@@ -94,7 +96,8 @@ export class ModalFormComponent implements OnInit {
       description: new FormControl(null),
       categories: new FormControl(null),
       region: new FormControl(null),
-      city: new FormControl(null)
+      city: new FormControl(null),
+      documents: new FormControl(null)
     });
     this.grantForm.get('city').disable();
   }
