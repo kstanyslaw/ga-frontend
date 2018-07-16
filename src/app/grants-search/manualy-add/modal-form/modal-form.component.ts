@@ -13,7 +13,7 @@ import { CITIES } from './cities';
 })
 export class ModalFormComponent implements OnInit {
 
-  documents: Array<File>;
+  documents = [];
 
   cities = CITIES;
 
@@ -80,8 +80,14 @@ export class ModalFormComponent implements OnInit {
   onDocumentPicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.fileName = file.name;
-    console.log(file);
+    this.documents.push(file);
+    console.log(this.documents);
     const reader = new FileReader();
+  }
+
+  onDocumentDelete(i) {
+    this.documents.splice(i, 1);
+    console.log(this.documents);
   }
 
   ngOnInit() {

@@ -5,3 +5,7 @@ label.header {
 input[type="file"] {
     visibility: hidden;
 }
+
+div.document {
+    width: 100%;
+}
