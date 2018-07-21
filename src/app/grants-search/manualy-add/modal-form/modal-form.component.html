@@ -100,7 +100,7 @@
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">+</button>
             </div>
-            <input type="file" (change)="onDocumentPicked($event)" #filePicker>
+            <input type="file" (change)="onDocumentPicked($event)" #filePicker multiple>
         </div>
         <div class="input-group mb-1" *ngFor="let document of documents; let i=index">
             <p> {{ document.name }} </p>
