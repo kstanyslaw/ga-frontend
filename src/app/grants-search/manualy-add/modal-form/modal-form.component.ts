@@ -78,10 +78,11 @@ export class ModalFormComponent implements OnInit {
   }
 
   onDocumentPicked(event: Event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    this.fileName = file.name;
-    this.documents.push(file);
-    console.log(this.documents);
+    const file = (event.target as HTMLInputElement).files;
+    for (let i = 0; i < file.length; i++) {
+      this.documents.push(file[i]);
+    }
+    console.log('FilesArray:', this.documents);
     const reader = new FileReader();
   }
 
