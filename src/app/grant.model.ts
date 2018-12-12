@@ -13,5 +13,6 @@ export class Grant {
     public city?: string,
     public description?: string,
     public categories?: string[],
+    public documents?: File[],
   ) {  }
 }

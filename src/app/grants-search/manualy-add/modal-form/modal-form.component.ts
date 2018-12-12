@@ -48,7 +48,8 @@ export class ModalFormComponent implements OnInit {
       this.cities[this.grantForm.value.region].region,
       this.grantForm.value.city,
       this.grantForm.value.description,
-      this.grantForm.value.categories
+      this.grantForm.value.categories,
+      this.documents
     );
     this.grantsSearchService.addGrant(grant)
       .subscribe(
